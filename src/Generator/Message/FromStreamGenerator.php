@@ -43,7 +43,6 @@ class FromStreamGenerator extends BaseGenerator implements GeneratorVisitor
             'parameters' => [
                 [
                     'name'          => 'stream',
-                    'type'          => 'mixed',
                 ],
                 [
                     'name'          => 'configuration',

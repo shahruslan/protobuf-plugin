@@ -18,7 +18,7 @@ class InnerMessageEnum extends \Protobuf\Enum
     /**
      * VALUE = 0
      */
-    const VALUE_VALUE = 0;
+    public const VALUE_VALUE = 0;
 
     /**
      * @var \ProtobufCompilerTest\Protos\Options\ParentMessage\InnerMessage\InnerMessageEnum
@@ -41,7 +41,7 @@ class InnerMessageEnum extends \Protobuf\Enum
      * @param int $value
      * @return \ProtobufCompilerTest\Protos\Options\ParentMessage\InnerMessage\InnerMessageEnum
      */
-    public static function valueOf($value)
+    public static function valueOf(int $value)
     {
         switch ($value) {
             case 0: return self::VALUE();

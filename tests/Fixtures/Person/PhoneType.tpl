@@ -17,17 +17,17 @@ class PhoneType extends \Protobuf\Enum
     /**
      * MOBILE = 0
      */
-    const MOBILE_VALUE = 0;
+    public const MOBILE_VALUE = 0;
 
     /**
      * HOME = 1
      */
-    const HOME_VALUE = 1;
+    public const HOME_VALUE = 1;
 
     /**
      * WORK = 2
      */
-    const WORK_VALUE = 2;
+    public const WORK_VALUE = 2;
 
     /**
      * @var \ProtobufCompilerTest\Protos\Person\PhoneType
@@ -84,7 +84,7 @@ class PhoneType extends \Protobuf\Enum
      * @param int $value
      * @return \ProtobufCompilerTest\Protos\Person\PhoneType
      */
-    public static function valueOf($value)
+    public static function valueOf(int $value)
     {
         switch ($value) {
             case 0: return self::MOBILE();
