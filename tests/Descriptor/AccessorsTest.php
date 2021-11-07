@@ -34,33 +34,33 @@ class AccessorsTest extends TestCase
         $simple->setBool(true);
         $simple->setString("foo");
         $simple->setFloat(12345.123);
-        $simple->setUint32(123456789);
-        $simple->setInt32(-123456789);
-        $simple->setFixed32(123456789);
-        $simple->setSint32(-123456789);
-        $simple->setSfixed32(-123456789);
-        $simple->setDouble(123456789.12345);
-        $simple->setInt64(-123456789123456789);
-        $simple->setUint64(123456789123456789);
-        $simple->setFixed64(123456789123456789);
-        $simple->setSint64(-123456789123456789);
+        $simple->setUint32(123_456_789);
+        $simple->setInt32(-123_456_789);
+        $simple->setFixed32(123_456_789);
+        $simple->setSint32(-123_456_789);
+        $simple->setSfixed32(-123_456_789);
+        $simple->setDouble(123_456_789.12345);
+        $simple->setInt64(-123_456_789_123_456_789);
+        $simple->setUint64(123_456_789_123_456_789);
+        $simple->setFixed64(123_456_789_123_456_789);
+        $simple->setSint64(-123_456_789_123_456_789);
         $simple->setBytes(Stream::wrap("bar"));
-        $simple->setSfixed64(-123456789123456789);
+        $simple->setSfixed64(-123_456_789_123_456_789);
 
         $this->assertSame(true, $simple->getBool());
         $this->assertSame("foo", $simple->getString());
         $this->assertSame(12345.123, $simple->getFloat());
-        $this->assertSame(123456789, $simple->getUint32());
-        $this->assertSame(-123456789, $simple->getInt32());
-        $this->assertSame(123456789, $simple->getFixed32());
-        $this->assertSame(-123456789, $simple->getSint32());
-        $this->assertSame(-123456789, $simple->getSfixed32());
-        $this->assertSame(123456789.12345, $simple->getDouble());
-        $this->assertSame(-123456789123456789, $simple->getInt64());
-        $this->assertSame(123456789123456789, $simple->getUint64());
-        $this->assertSame(123456789123456789, $simple->getFixed64());
-        $this->assertSame(-123456789123456789, $simple->getSint64());
-        $this->assertSame(-123456789123456789, $simple->getSfixed64());
+        $this->assertSame(123_456_789, $simple->getUint32());
+        $this->assertSame(-123_456_789, $simple->getInt32());
+        $this->assertSame(123_456_789, $simple->getFixed32());
+        $this->assertSame(-123_456_789, $simple->getSint32());
+        $this->assertSame(-123_456_789, $simple->getSfixed32());
+        $this->assertSame(123_456_789.12345, $simple->getDouble());
+        $this->assertSame(-123_456_789_123_456_789, $simple->getInt64());
+        $this->assertSame(123_456_789_123_456_789, $simple->getUint64());
+        $this->assertSame(123_456_789_123_456_789, $simple->getFixed64());
+        $this->assertSame(-123_456_789_123_456_789, $simple->getSint64());
+        $this->assertSame(-123_456_789_123_456_789, $simple->getSfixed64());
         $this->assertInstanceOf('Protobuf\Stream', $simple->getBytes());
 
         $simple->setBool(null);
@@ -103,33 +103,33 @@ class AccessorsTest extends TestCase
             'string'    => "foo",
             'bytes'     => "bar",
             'float'     => 12345.123,
-            'fixed32'   => 123456789,
-            'uint32'    => 123456789,
-            'sfixed32'  => -123456789,
-            'sint32'    => -123456789,
-            'int32'     => -123456789,
-            'double'    => 123456789.12345,
-            'int64'     => -123456789123456789,
-            'uint64'    => 123456789123456789,
-            'fixed64'   => 123456789123456789,
-            'sfixed64'  => -123456789123456789,
-            'sint64'    => -123456789123456789
+            'fixed32'   => 123_456_789,
+            'uint32'    => 123_456_789,
+            'sfixed32'  => -123_456_789,
+            'sint32'    => -123_456_789,
+            'int32'     => -123_456_789,
+            'double'    => 123_456_789.12345,
+            'int64'     => -123_456_789_123_456_789,
+            'uint64'    => 123_456_789_123_456_789,
+            'fixed64'   => 123_456_789_123_456_789,
+            'sfixed64'  => -123_456_789_123_456_789,
+            'sint64'    => -123_456_789_123_456_789
         ]);
 
         $this->assertSame(true, $simple->getBool());
         $this->assertSame("foo", $simple->getString());
         $this->assertSame(12345.123, $simple->getFloat());
-        $this->assertSame(123456789, $simple->getUint32());
-        $this->assertSame(-123456789, $simple->getInt32());
-        $this->assertSame(123456789, $simple->getFixed32());
-        $this->assertSame(-123456789, $simple->getSint32());
-        $this->assertSame(-123456789, $simple->getSfixed32());
-        $this->assertSame(123456789.12345, $simple->getDouble());
-        $this->assertSame(-123456789123456789, $simple->getInt64());
-        $this->assertSame(123456789123456789, $simple->getUint64());
-        $this->assertSame(123456789123456789, $simple->getFixed64());
-        $this->assertSame(-123456789123456789, $simple->getSint64());
-        $this->assertSame(-123456789123456789, $simple->getSfixed64());
+        $this->assertSame(123_456_789, $simple->getUint32());
+        $this->assertSame(-123_456_789, $simple->getInt32());
+        $this->assertSame(123_456_789, $simple->getFixed32());
+        $this->assertSame(-123_456_789, $simple->getSint32());
+        $this->assertSame(-123_456_789, $simple->getSfixed32());
+        $this->assertSame(123_456_789.12345, $simple->getDouble());
+        $this->assertSame(-123_456_789_123_456_789, $simple->getInt64());
+        $this->assertSame(123_456_789_123_456_789, $simple->getUint64());
+        $this->assertSame(123_456_789_123_456_789, $simple->getFixed64());
+        $this->assertSame(-123_456_789_123_456_789, $simple->getSint64());
+        $this->assertSame(-123_456_789_123_456_789, $simple->getSfixed64());
         $this->assertInstanceOf('Protobuf\Stream', $simple->getBytes());
 
         $simple = Simple::fromArray([]);

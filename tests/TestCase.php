@@ -20,15 +20,9 @@ use google\protobuf\compiler\CodeGeneratorRequest;
 
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var \Protobuf\Configuration
-     */
-    protected $config;
+    protected ?\Protobuf\Configuration $config = null;
 
-    /**
-     * @var array
-     */
-    protected $protoClasses = [
+    protected array $protoClasses = [
         'ProtobufCompilerTest\Protos\Simple',
         'ProtobufCompilerTest\Protos\Person',
         'ProtobufCompilerTest\Protos\Repeated',

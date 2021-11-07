@@ -11,7 +11,7 @@ use Protobuf\Field;
 
 class ReadFieldStatementGeneratorTest extends TestCase
 {
-    protected $messageClass = 'ProtobufCompilerTest.Protos.Simple';
+    protected string $messageClass = 'ProtobufCompilerTest.Protos.Simple';
 
     public function createMessagesContext(array $fields)
     {

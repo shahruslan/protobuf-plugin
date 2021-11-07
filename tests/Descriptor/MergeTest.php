@@ -33,17 +33,17 @@ class MergeTest extends TestCase
         $simple1->setString("foo");
         $simple1->setBytes($bytes);
         $simple1->setFloat(12345.123);
-        $simple1->setUint32(123456789);
-        $simple1->setInt32(-123456789);
-        $simple1->setFixed32(123456789);
-        $simple1->setSint32(-123456789);
-        $simple1->setSfixed32(-123456789);
-        $simple1->setDouble(123456789.12345);
-        $simple1->setInt64(-123456789123456789);
-        $simple1->setUint64(123456789123456789);
-        $simple1->setFixed64(123456789123456789);
-        $simple1->setSint64(-123456789123456789);
-        $simple1->setSfixed64(-123456789123456789);
+        $simple1->setUint32(123_456_789);
+        $simple1->setInt32(-123_456_789);
+        $simple1->setFixed32(123_456_789);
+        $simple1->setSint32(-123_456_789);
+        $simple1->setSfixed32(-123_456_789);
+        $simple1->setDouble(123_456_789.12345);
+        $simple1->setInt64(-123_456_789_123_456_789);
+        $simple1->setUint64(123_456_789_123_456_789);
+        $simple1->setFixed64(123_456_789_123_456_789);
+        $simple1->setSint64(-123_456_789_123_456_789);
+        $simple1->setSfixed64(-123_456_789_123_456_789);
 
         $simple2->merge($simple1);
 
@@ -51,17 +51,17 @@ class MergeTest extends TestCase
         $this->assertSame("foo", $simple2->getString());
         $this->assertSame($bytes, $simple2->getBytes());
         $this->assertSame(12345.123, $simple2->getFloat());
-        $this->assertSame(123456789, $simple2->getUint32());
-        $this->assertSame(-123456789, $simple2->getInt32());
-        $this->assertSame(123456789, $simple2->getFixed32());
-        $this->assertSame(-123456789, $simple2->getSint32());
-        $this->assertSame(-123456789, $simple2->getSfixed32());
-        $this->assertSame(123456789.12345, $simple2->getDouble());
-        $this->assertSame(-123456789123456789, $simple2->getInt64());
-        $this->assertSame(123456789123456789, $simple2->getUint64());
-        $this->assertSame(123456789123456789, $simple2->getFixed64());
-        $this->assertSame(-123456789123456789, $simple2->getSint64());
-        $this->assertSame(-123456789123456789, $simple2->getSfixed64());
+        $this->assertSame(123_456_789, $simple2->getUint32());
+        $this->assertSame(-123_456_789, $simple2->getInt32());
+        $this->assertSame(123_456_789, $simple2->getFixed32());
+        $this->assertSame(-123_456_789, $simple2->getSint32());
+        $this->assertSame(-123_456_789, $simple2->getSfixed32());
+        $this->assertSame(123_456_789.12345, $simple2->getDouble());
+        $this->assertSame(-123_456_789_123_456_789, $simple2->getInt64());
+        $this->assertSame(123_456_789_123_456_789, $simple2->getUint64());
+        $this->assertSame(123_456_789_123_456_789, $simple2->getFixed64());
+        $this->assertSame(-123_456_789_123_456_789, $simple2->getSint64());
+        $this->assertSame(-123_456_789_123_456_789, $simple2->getSfixed64());
     }
 
     public function testSimpleMessageMergeNullComparison()

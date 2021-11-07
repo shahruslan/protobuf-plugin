@@ -8,7 +8,7 @@ use Protobuf\Compiler\Protoc\ProcessBuilder;
 
 class ProcessBuilderTest extends TestCase
 {
-    private $root;
+    private ?\org\bovigo\vfs\vfsStreamDirectory $root = null;
 
     public function setUp()
     {
