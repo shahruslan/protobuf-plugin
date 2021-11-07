@@ -177,6 +177,7 @@ class FieldsGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateAddMethod(Entity $entity, FieldDescriptorProto $field)
     {
+        $lines = [];
         $fieldName  = $field->getName();
         $fieldType  = $field->getType();
         $collClass  = $this->getCollectionClassName($field);

@@ -40,6 +40,7 @@ class ExtensionsGenerator extends BaseGenerator implements GeneratorVisitor
      */
     public function generateBody(Entity $entity, FieldDescriptorProto $field)
     {
+        $body = [];
         $name      = $field->getName();
         $tag       = $field->getNumber();
         $extEntity = $this->getEntity($field->getExtendee());

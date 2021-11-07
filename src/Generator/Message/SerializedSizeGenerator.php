@@ -60,6 +60,7 @@ class SerializedSizeGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateBody(Entity $entity)
     {
+        $body = [];
         $descriptor = $entity->getDescriptor();
         $fields     = $descriptor->getFieldList() ?: [];
         $extLines   = $this->generateExtensionsSerializedSize($entity);
@@ -87,6 +88,7 @@ class SerializedSizeGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateExtensionsSerializedSize(Entity $entity)
     {
+        $body = [];
         $descriptor      = $entity->getDescriptor();
         $extensionsField = $this->getUniqueFieldName($descriptor, 'extensions');
 
@@ -105,6 +107,7 @@ class SerializedSizeGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateFieldCondition(Entity $entity, FieldDescriptorProto $field)
     {
+        $body = [];
         $sttm  = $this->generateFieldSizeStatement($entity, $field);
         $lines = $this->addIndentation($sttm, 1);
         $name  = $field->getName();

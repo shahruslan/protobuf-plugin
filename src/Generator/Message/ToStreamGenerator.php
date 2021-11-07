@@ -59,6 +59,7 @@ class ToStreamGenerator extends BaseGenerator implements GeneratorVisitor
      */
     public function generateBody()
     {
+        $body = [];
         $body[] = '$config  = $configuration ?: \Protobuf\Configuration::getInstance();';
         $body[] = '$context = $config->createWriteContext();';
         $body[] = '$stream  = $context->getStream();';
