@@ -20,8 +20,8 @@ use google\protobuf\FieldDescriptorProto\Label;
  */
 class ReadFieldStatementGenerator extends BaseGenerator
 {
-    const BREAK_MODE_CONTINUE = 1;
-    const BREAK_MODE_RETURN   = 2;
+    public const BREAK_MODE_CONTINUE = 1;
+    public const BREAK_MODE_RETURN   = 2;
 
     /**
      * @var string

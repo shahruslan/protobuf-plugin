@@ -15,7 +15,7 @@
     ],
     "bin"        : ["bin/protobuf"],
     "require"    : {
-        "php"                                : "^7.0",
+        "php"                                : "^7.1",
         "protobuf-php/protobuf"              : ">=0.1",
         "protobuf-php/google-protobuf-proto" : ">=0.1",
         "zendframework/zend-code"            : "^2.6",

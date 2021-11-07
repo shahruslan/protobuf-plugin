@@ -34,7 +34,7 @@ class ToStreamGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateToStreamMethod(Entity $entity)
     {
-        $lines   = $this->generateBody($entity);
+        $lines   = $this->generateBody();
         $body    = implode(PHP_EOL, $lines);
         $method  = MethodGenerator::fromArray([
             'name'       => 'toStream',
