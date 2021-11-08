@@ -115,21 +115,20 @@ class ProcessBuilder
             throw new InvalidArgumentException('Proto file list cannot be empty.');
         }
 
-        $builder = new \Symfony\Component\Process\Process();
         $outDir  = $this->getRealPath($outPath);
         $include = $this->getRealPaths($includeDirs);
         $protos  = $this->getRealPaths($protosFiles, true);
 
-        $builder->setPrefix($this->protoc);
+        $commandLine = [$this->protoc];
 
-        $builder->add(['--plugin=protoc-gen-php=%s']);
+        $commandLine[] = sprintf('--plugin=protoc-gen-php=%s', $this->plugin);
 
         foreach ($include as $i) {
-            $builder->add(['--proto_path=%s']);
+            $commandLine[] = sprintf('--proto_path=%s', $i);
         }
 
         if ($this->includeDescriptors) {
-            $builder->add(['--proto_path=%s']);
+            $commandLine[] = sprintf('--proto_path=%s', $this->findDescriptorsPath());
         }
 
         // Protoc will pass custom arguments to the plugin if they are given
@@ -138,14 +137,16 @@ class ProcessBuilder
             ? http_build_query($parameters, '', '&') . ':' . $outDir
             : $outDir;
 
-        $builder->add(['--php_out=%s']);
+        $commandLine[] = sprintf('--php_out=%s', $out);
 
         // Add the chosen proto files to generate
         foreach ($protos as $proto) {
-            $builder->add($proto);
+            $commandLine[] = $proto;
         }
 
-        return $builder;
+        $process = new \Symfony\Component\Process\Process($commandLine);
+
+        return $process;
     }
 
     /**
@@ -217,9 +218,7 @@ class ProcessBuilder
      */
     public function createProtocVersionProcess()
     {
-        $protoc  = $this->protoc;
-        $process = new Process("$protoc --version");
-
+        $process = new Process(["$this->protoc --version"]);
         return $process;
     }
 }
