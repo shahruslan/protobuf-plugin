@@ -22,13 +22,13 @@ class BaseGeneratorTest extends TestCase
      */
     protected function setUp()
     {
-        $this->context   = $this->getMock('Protobuf\Compiler\Context', [], [], '', false);
+        $this->context   = $this->createMock('Protobuf\Compiler\Context');
         $this->generator = new BaseGenerator($this->context);
     }
 
     public function testGetDoctype()
     {
-        $entity = $this->getMock(Entity::CLASS, [], [], '', false);
+        $entity = $this->createMock(Entity::CLASS);
         $type   = FieldDescriptorProto\Type::TYPE_ENUM();
         $field  = new FieldDescriptorProto();
         $ref    = 'Reference';
@@ -53,7 +53,7 @@ class BaseGeneratorTest extends TestCase
 
     public function testGetDefaultFieldValueEnum()
     {
-        $entity  = $this->getMock(Entity::CLASS, [], [], '', false);
+        $entity  = $this->createMock(Entity::CLASS);
         $type    = FieldDescriptorProto\Type::TYPE_ENUM();
         $field   = new FieldDescriptorProto();
         $ref     = 'Reference';
@@ -125,7 +125,7 @@ class BaseGeneratorTest extends TestCase
 
     public function testGetTypeHintMessage()
     {
-        $entity = $this->getMock(Entity::CLASS, [], [], '', false);
+        $entity = $this->createMock(Entity::CLASS);
         $label  = FieldDescriptorProto\Label::LABEL_REQUIRED();
         $type   = FieldDescriptorProto\Type::TYPE_MESSAGE();
         $field  = new FieldDescriptorProto();
@@ -152,7 +152,7 @@ class BaseGeneratorTest extends TestCase
 
     public function testGetTypeHintMessageRepeated()
     {
-        $entity = $this->getMock(Entity::CLASS, [], [], '', false);
+        $entity = $this->createMock(Entity::CLASS);
         $label  = FieldDescriptorProto\Label::LABEL_REPEATED();
         $type   = FieldDescriptorProto\Type::TYPE_MESSAGE();
         $field  = new FieldDescriptorProto();

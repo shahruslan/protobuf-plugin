@@ -23,9 +23,9 @@ class ToStreamTest extends TestCase
 
     public function testAddressBookToStream()
     {
-        $config  = $this->getMock(Configuration::CLASS);
-        $stream  = $this->getMock(Stream::CLASS, [], [], '', false);
-        $context = $this->getMock(WriteContext::CLASS, [], [], '', false);
+        $config  = $this->createMock(Configuration::CLASS);
+        $stream  = $this->createMock(Stream::CLASS);
+        $context = $this->createMock(WriteContext::CLASS);
         $message = $this->getMockBuilder(AddressBook::CLASS)
             ->setMethods(['writeTo'])
             ->getMock();

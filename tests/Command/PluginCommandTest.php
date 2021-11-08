@@ -74,7 +74,7 @@ class PluginCommandTest extends TestCase
     public function testCreateProcessBuilder()
     {
         $command  = new PluginCommand();
-        $output   = $this->getMock('Symfony\Component\Console\Output\OutputInterface');
+        $output   = $this->createMock('Symfony\Component\Console\Output\OutputInterface');
         $compiler = $this->invokeMethod($command, 'createCompiler', [$output]);
 
         $this->assertInstanceOf('Protobuf\Compiler\Compiler', $compiler);
@@ -83,7 +83,7 @@ class PluginCommandTest extends TestCase
     public function testCreateConsoleLogger()
     {
         $command  = new PluginCommand();
-        $output   = $this->getMock('Symfony\Component\Console\Output\OutputInterface');
+        $output   = $this->createMock('Symfony\Component\Console\Output\OutputInterface');
         $compiler = $this->invokeMethod($command, 'createConsoleLogger', [$output]);
 
         $this->assertInstanceOf('Symfony\Component\Console\Logger\ConsoleLogger', $compiler);

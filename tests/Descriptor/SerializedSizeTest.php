@@ -28,8 +28,8 @@ class SerializedSizeTest extends TestCase
     public function testSimpleSerializedSize()
     {
         $simple     = new Simple();
-        $calculator = $this->getMock(SizeCalculator::CLASS, [], [], '', false);
-        $context    = $this->getMock(ComputeSizeContext::CLASS, [], [], '', false);
+        $calculator = $this->createMock(SizeCalculator::CLASS);
+        $context    = $this->createMock(ComputeSizeContext::CLASS);
 
         $simple->setBool(true);
         $simple->setBytes("bar");
@@ -86,8 +86,8 @@ class SerializedSizeTest extends TestCase
     public function testRepeatedStringSerializedSize()
     {
         $repeated   = new Repeated();
-        $calculator = $this->getMock(SizeCalculator::CLASS, [], [], '', false);
-        $context    = $this->getMock(ComputeSizeContext::CLASS, [], [], '', false);
+        $calculator = $this->createMock(SizeCalculator::CLASS);
+        $context    = $this->createMock(ComputeSizeContext::CLASS);
 
         $repeated->addString('one');
         $repeated->addString('two');
@@ -111,8 +111,8 @@ class SerializedSizeTest extends TestCase
     public function testRepeatedInt32SerializedSize()
     {
         $repeated   = new Repeated();
-        $calculator = $this->getMock(SizeCalculator::CLASS, [], [], '', false);
-        $context    = $this->getMock(ComputeSizeContext::CLASS, [], [], '', false);
+        $calculator = $this->createMock(SizeCalculator::CLASS);
+        $context    = $this->createMock(ComputeSizeContext::CLASS);
 
         $repeated->addInt(1);
         $repeated->addInt(2);
@@ -136,10 +136,10 @@ class SerializedSizeTest extends TestCase
     public function testAddressBookWithExtensionsSerializedSize()
     {
         $message    = new AddressBook();
-        $person     = $this->getMock(Person::CLASS);
-        $calculator = $this->getMock(SizeCalculator::CLASS, [], [], '', false);
-        $extensions = $this->getMock(ExtensionFieldMap::CLASS, [], [], '', false);
-        $context    = $this->getMock(ComputeSizeContext::CLASS, [], [], '', false);
+        $person     = $this->createMock(Person::CLASS);
+        $calculator = $this->createMock(SizeCalculator::CLASS);
+        $extensions = $this->createMock(ExtensionFieldMap::CLASS);
+        $context    = $this->createMock(ComputeSizeContext::CLASS);
         $personSize = 2;
         $extSize    = 4;
 

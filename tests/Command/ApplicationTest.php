@@ -17,7 +17,7 @@ class ApplicationTest extends TestCase
 
     public function setUp()
     {
-        $this->input   = $this->getMock('Symfony\Component\Console\Input\InputInterface');
+        $this->input   = $this->createMock('Symfony\Component\Console\Input\InputInterface');
 
         $this->generateCommand = $this->getMockBuilder(GenerateCommand::CLASS)
             ->disableOriginalConstructor()

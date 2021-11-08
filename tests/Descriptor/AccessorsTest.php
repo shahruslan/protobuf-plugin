@@ -269,10 +269,10 @@ class AccessorsTest extends TestCase
         $repeated = new Repeated();
         $nested   = new Repeated\Nested();
 
-        $intList    = $this->getMock('Protobuf\ScalarCollection');
-        $stringList = $this->getMock('Protobuf\ScalarCollection');
-        $nestedList = $this->getMock('Protobuf\MessageCollection');
-        $bytesList  = $this->getMock('Protobuf\StreamCollection');
+        $intList    = $this->createMock('Protobuf\ScalarCollection');
+        $stringList = $this->createMock('Protobuf\ScalarCollection');
+        $nestedList = $this->createMock('Protobuf\MessageCollection');
+        $bytesList  = $this->createMock('Protobuf\StreamCollection');
 
         $this->assertNull($repeated->getIntList());
         $this->assertNull($repeated->getBytesList());

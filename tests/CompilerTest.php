@@ -16,7 +16,7 @@ class CompilerTest extends TestCase
      */
     protected function setUp()
     {
-        $this->logger = $this->getMock('Psr\Log\LoggerInterface');
+        $this->logger = $this->createMock('Psr\Log\LoggerInterface');
     }
 
     public function testGenerateSimpleMessage()
@@ -42,7 +42,7 @@ class CompilerTest extends TestCase
     public function testLoadEntityClassIgnoreExistinClass()
     {
         $compiler = new Compiler($this->logger);
-        $entity   = $this->getMock(Entity::CLASS, [], [], '', false);
+        $entity   = $this->createMock(Entity::CLASS);
 
         $entity->expects($this->once())
             ->method('getType')
@@ -63,7 +63,7 @@ class CompilerTest extends TestCase
     {
         $unique   = uniqid();
         $compiler = new Compiler($this->logger);
-        $entity   = $this->getMock(Entity::CLASS, [], [], '', false);
+        $entity   = $this->createMock(Entity::CLASS);
         $class    = "ProtobufCompilerTest\CompilerTest$unique\Extension";
         $code     = <<<CODE
 <?php
