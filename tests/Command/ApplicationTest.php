@@ -9,20 +9,11 @@ use Protobuf\Compiler\Command\GenerateCommand;
 
 class ApplicationTest extends TestCase
 {
-     /**
-     * @var \Protobuf\Compiler\Command\GenerateCommand
-     */
-    private $generateCommand;
+     private ?\PHPUnit_Framework_MockObject_MockObject $generateCommand = null;
 
-    /**
-     * @var \Protobuf\Compiler\Command\PluginCommand
-     */
-    private $pluginCommand;
+    private ?\PHPUnit_Framework_MockObject_MockObject $pluginCommand = null;
 
-     /**
-     * @var \Symfony\Component\Console\Input\InputInterface
-     */
-    private $input;
+     private ?\PHPUnit_Framework_MockObject_MockObject $input = null;
 
     public function setUp()
     {

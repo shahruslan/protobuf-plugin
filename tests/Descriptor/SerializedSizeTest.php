@@ -35,17 +35,17 @@ class SerializedSizeTest extends TestCase
         $simple->setBytes("bar");
         $simple->setString("foo");
         $simple->setFloat(12345.123);
-        $simple->setUint32(123456789);
-        $simple->setInt32(-123456789);
-        $simple->setFixed32(123456789);
-        $simple->setSint32(-123456789);
-        $simple->setSfixed32(-123456789);
-        $simple->setDouble(123456789.12345);
-        $simple->setInt64(-123456789123456789);
-        $simple->setUint64(123456789123456789);
-        $simple->setFixed64(123456789123456789);
-        $simple->setSint64(-123456789123456789);
-        $simple->setSfixed64(-123456789123456789);
+        $simple->setUint32(123_456_789);
+        $simple->setInt32(-123_456_789);
+        $simple->setFixed32(123_456_789);
+        $simple->setSint32(-123_456_789);
+        $simple->setSfixed32(-123_456_789);
+        $simple->setDouble(123_456_789.12345);
+        $simple->setInt64(-123_456_789_123_456_789);
+        $simple->setUint64(123_456_789_123_456_789);
+        $simple->setFixed64(123_456_789_123_456_789);
+        $simple->setSint64(-123_456_789_123_456_789);
+        $simple->setSfixed64(-123_456_789_123_456_789);
 
         $context->expects($this->once())
             ->method('getSizeCalculator')
@@ -54,10 +54,10 @@ class SerializedSizeTest extends TestCase
         $calculator->expects($this->exactly(4))
             ->method('computeVarintSize')
             ->will($this->returnValueMap([
-                [-123456789123456789, 10],
-                [123456789123456789, 9],
-                [-123456789, 10],
-                [123456789, 4],
+                [-123_456_789_123_456_789, 10],
+                [123_456_789_123_456_789, 9],
+                [-123_456_789, 10],
+                [123_456_789, 4],
             ]));
 
         $calculator->expects($this->once())
@@ -72,12 +72,12 @@ class SerializedSizeTest extends TestCase
 
         $calculator->expects($this->once())
             ->method('computeZigzag32Size')
-            ->with(-123456789)
+            ->with(-123_456_789)
             ->willReturn(4);
 
         $calculator->expects($this->once())
             ->method('computeZigzag64Size')
-            ->with(-123456789123456789)
+            ->with(-123_456_789_123_456_789)
             ->willReturn(9);
 
         $simple->serializedSize($context);

@@ -113,15 +113,15 @@ class FieldsGenerator extends BaseGenerator implements GeneratorVisitor
         $body[] = '$this->' . $fieldName . ' = $value;';
 
         $methodName = $this->getAccessorName('set', $field);
+        $parameters = array_merge(
+            ['name'   => 'value'],
+            $typeHint ? ['type'   => $typeHint] : []
+        );
+
         $method     = MethodGenerator::fromArray([
             'name'       => $methodName,
             'body'       => implode(PHP_EOL, $body),
-            'parameters' => [
-                [
-                    'name'   => 'value',
-                    'type'   => $typeHint
-                ]
-            ],
+            'parameters' => [$parameters],
             'docblock'   => [
                 'shortDescription' => "Set '$fieldName' value",
                 'tags'             => [
@@ -177,6 +177,7 @@ class FieldsGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateAddMethod(Entity $entity, FieldDescriptorProto $field)
     {
+        $lines = [];
         $fieldName  = $field->getName();
         $fieldType  = $field->getType();
         $collClass  = $this->getCollectionClassName($field);

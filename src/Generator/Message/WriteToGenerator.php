@@ -63,6 +63,7 @@ class WriteToGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateBody(Entity $entity)
     {
+        $body = [];
         $descriptor = $entity->getDescriptor();
         $fields     = $descriptor->getFieldList() ?: [];
 
@@ -101,6 +102,7 @@ class WriteToGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateRequiredFieldException(Entity $entity, FieldDescriptorProto $field)
     {
+        $body = [];
         $name       = $field->getName();
         $label      = $field->getLabel();
         $tag        = $field->getNumber();

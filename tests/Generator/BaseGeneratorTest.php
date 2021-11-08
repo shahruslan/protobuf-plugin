@@ -13,15 +13,9 @@ use ProtobufCompilerTest\TestCase;
 
 class BaseGeneratorTest extends TestCase
 {
-    /**
-     * @var \Protobuf\Compiler\Generator\BaseGenerator
-     */
-    protected $generator;
+    protected ?\Protobuf\Compiler\Generator\BaseGenerator $generator = null;
 
-    /**
-     * @var \Protobuf\Compiler\Context
-     */
-    protected $context;
+    protected ?\PHPUnit_Framework_MockObject_MockObject $context = null;
 
     /**
      * {@inheritdoc}

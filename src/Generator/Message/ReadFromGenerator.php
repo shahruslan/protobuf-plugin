@@ -65,6 +65,7 @@ class ReadFromGenerator extends BaseGenerator implements GeneratorVisitor
      */
     public function generateBody(Entity $entity)
     {
+        $body = [];
         $innerLoop = $this->addIndentation($this->generateInnerLoop($entity), 1);
 
         $body[] = '$reader = $context->getReader();';
@@ -92,6 +93,7 @@ class ReadFromGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateInnerLoop(Entity $entity)
     {
+        $body = [];
         $descriptor = $entity->getDescriptor();
         $fields     = $descriptor->getFieldList() ?: [];
 
@@ -146,6 +148,7 @@ class ReadFromGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateFieldCondition(Entity $entity, FieldDescriptorProto $field)
     {
+        $body = [];
         $tag   = $field->getNumber();
         $lines = $this->generateFieldReadStatement($entity, $field);
         $lines = $this->addIndentation($lines, 1);

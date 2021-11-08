@@ -34,7 +34,7 @@ class FromStreamGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateMethod(Entity $entity)
     {
-        $lines   = $this->generateBody($entity);
+        $lines   = $this->generateBody();
         $body    = implode(PHP_EOL, $lines);
         $method  = MethodGenerator::fromArray([
             'name'       => 'fromStream',
@@ -43,7 +43,6 @@ class FromStreamGenerator extends BaseGenerator implements GeneratorVisitor
             'parameters' => [
                 [
                     'name'          => 'stream',
-                    'type'          => 'mixed',
                 ],
                 [
                     'name'          => 'configuration',

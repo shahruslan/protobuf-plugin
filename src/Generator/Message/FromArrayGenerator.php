@@ -124,6 +124,7 @@ class FromArrayGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateRequiredFieldException(Entity $entity, FieldDescriptorProto $field)
     {
+        $body = [];
         $name = $field->getName();
         $tag  = $field->getNumber();
 
@@ -183,7 +184,7 @@ class FromArrayGenerator extends BaseGenerator implements GeneratorVisitor
     {
         $descriptor = $entity->getDescriptor();
         $fields     = $descriptor->getFieldList() ?: [];
-        $size       = count($fields);
+        $size       = is_array($fields) || $fields instanceof \Countable ? count($fields) : 0;
         $lines      = [];
 
         foreach ($fields as $i => $field) {

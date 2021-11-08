@@ -13,10 +13,10 @@ use google\protobuf\FileDescriptorProto;
  */
 class Entity
 {
-    const TYPE_EXTENSION = 'extension';
-    const TYPE_MESSAGE   = 'message';
-    const TYPE_SERVICE   = 'service';
-    const TYPE_ENUM      = 'enum';
+    public const TYPE_EXTENSION = 'extension';
+    public const TYPE_MESSAGE   = 'message';
+    public const TYPE_SERVICE   = 'service';
+    public const TYPE_ENUM      = 'enum';
 
     /**
      * @var string

@@ -34,7 +34,7 @@ class ToStreamGenerator extends BaseGenerator implements GeneratorVisitor
      */
     protected function generateToStreamMethod(Entity $entity)
     {
-        $lines   = $this->generateBody($entity);
+        $lines   = $this->generateBody();
         $body    = implode(PHP_EOL, $lines);
         $method  = MethodGenerator::fromArray([
             'name'       => 'toStream',
@@ -59,6 +59,7 @@ class ToStreamGenerator extends BaseGenerator implements GeneratorVisitor
      */
     public function generateBody()
     {
+        $body = [];
         $body[] = '$config  = $configuration ?: \Protobuf\Configuration::getInstance();';
         $body[] = '$context = $config->createWriteContext();';
         $body[] = '$stream  = $context->getStream();';

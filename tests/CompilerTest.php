@@ -9,10 +9,7 @@ use google\protobuf\compiler\CodeGeneratorResponse;
 
 class CompilerTest extends TestCase
 {
-    /**
-     * @var \Psr\Log\LoggerInterface
-     */
-    protected $logger;
+    protected ?\PHPUnit_Framework_MockObject_MockObject $logger = null;
 
     /**
      * {@inheritdoc}

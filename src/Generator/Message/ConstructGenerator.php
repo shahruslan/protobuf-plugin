@@ -43,7 +43,6 @@ class ConstructGenerator extends BaseGenerator implements GeneratorVisitor
             'parameters' => [
                 [
                     'name'          => 'stream',
-                    'type'          => 'mixed',
                     'defaultValue'  => null
                 ],
                 [
