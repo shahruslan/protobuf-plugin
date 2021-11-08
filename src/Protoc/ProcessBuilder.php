@@ -115,21 +115,21 @@ class ProcessBuilder
             throw new InvalidArgumentException('Proto file list cannot be empty.');
         }
 
-        $builder = new SymfonyProcessBuilder();
+        $builder = new \Symfony\Component\Process\Process();
         $outDir  = $this->getRealPath($outPath);
         $include = $this->getRealPaths($includeDirs);
         $protos  = $this->getRealPaths($protosFiles, true);
 
         $builder->setPrefix($this->protoc);
 
-        $builder->add(sprintf('--plugin=protoc-gen-php=%s', $this->plugin));
+        $builder->add(['--plugin=protoc-gen-php=%s']);
 
         foreach ($include as $i) {
-            $builder->add(sprintf('--proto_path=%s', $i));
+            $builder->add(['--proto_path=%s']);
         }
 
         if ($this->includeDescriptors) {
-            $builder->add(sprintf('--proto_path=%s', $this->findDescriptorsPath()));
+            $builder->add(['--proto_path=%s']);
         }
 
         // Protoc will pass custom arguments to the plugin if they are given
@@ -138,14 +138,14 @@ class ProcessBuilder
             ? http_build_query($parameters, '', '&') . ':' . $outDir
             : $outDir;
 
-        $builder->add(sprintf('--php_out=%s', $out));
+        $builder->add(['--php_out=%s']);
 
         // Add the chosen proto files to generate
         foreach ($protos as $proto) {
             $builder->add($proto);
         }
 
-        return $builder->getProcess();
+        return $builder;
     }
 
     /**

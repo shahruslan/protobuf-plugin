@@ -57,7 +57,7 @@ class PluginCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($this->stream === null) {
             throw new RuntimeException("Unable to read standard input.");
@@ -67,6 +67,7 @@ class PluginCommand extends Command
         $response = $compiler->compile($this->stream);
 
         $this->writeStream($response);
+        return 0;
     }
 
     /**

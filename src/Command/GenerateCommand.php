@@ -56,7 +56,7 @@ class GenerateCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $args    = [];
         $out     = $input->getOption('out');
@@ -122,7 +122,7 @@ class GenerateCommand extends Command
         $output->writeln($process->getErrorOutput());
         $output->writeln('');
 
-        return $return;
+        return (int) $return;
     }
 
     /**
