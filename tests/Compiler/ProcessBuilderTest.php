@@ -72,7 +72,7 @@ class ProcessBuilderTest extends TestCase
         $command = $process->getCommandLine();
 
         $this->assertInstanceOf('Symfony\Component\Process\Process', $process);
-        $this->assertEquals("vfs://root/protoc --version", $command);
+        $this->assertEquals("'vfs://root/protoc --version'", $command);
     }
 
     public function testAssertVersion()
