@@ -218,7 +218,7 @@ class ProcessBuilder
      */
     public function createProtocVersionProcess()
     {
-        $process = new Process(["$this->protoc --version"]);
+        $process = new Process([$this->protoc, "--version"]);
         return $process;
     }
 }

@@ -35,7 +35,7 @@ class Application extends SymfonyApplication
         $this->generateCommand = $generateCommand;
         $this->pluginCommand   = $pluginCommand;
 
-        parent::__construct('protobuf');
+        parent::__construct('protobuf', '2.3.0');
     }
 
     /**
